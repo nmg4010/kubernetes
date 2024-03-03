@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-3
+  name: deploy-test
   labels:
     purpose: learning
-  namespace: test-1
+  namespace: preprod
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       type: create
@@ -19,14 +19,9 @@ spec:
         type: create
     spec:
       containers:
-      - name: httpd
+      - name: nginx
         image: nginx
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            memory: 5Mi
-          limits:
-            memory: 10Mi
 
 

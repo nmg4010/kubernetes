@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-3
+  name: deploy-1
   labels:
     purpose: learning
-  namespace: test-1
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -28,5 +28,9 @@ spec:
             memory: 5Mi
           limits:
             memory: 10Mi
+        livenessProbe:
+          httpGet:
+            path: /users
+            port: 80
 
 
